@@ -86,3 +86,23 @@ Validation:
 Notes:
 
 AWS sample findings were successfully generated and centralized in Security Hub. EventBridge integration was configured as the foundation for production notification workflows.
+
+# Threat Investigation
+
+## Services
+
+- Amazon Detective
+- Amazon GuardDuty
+- AWS Security Hub
+
+## Objective
+
+Investigate and correlate security findings to accelerate incident response.
+
+## Validation
+
+Amazon Detective was enabled and integrated with the centralized security operations environment.
+
+## Notes
+
+Due to the lab environment and limited telemetry history, Detective did not generate finding groups during the testing window. The integration architecture was successfully deployed and validated.
