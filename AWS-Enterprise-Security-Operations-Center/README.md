@@ -35,3 +35,54 @@ Critical
 ## Outcome
 
 Successfully validated GuardDuty attack sequence detection and Security Hub integration.
+
+# Automated Incident Response
+
+## Objective
+
+Notify security teams when GuardDuty identifies critical threats.
+
+## Workflow
+
+GuardDuty → EventBridge → SNS → Email
+
+## Benefits
+
+- Near real-time alerting
+- Reduced mean time to detection
+- Centralized notification workflow
+
+## Status
+
+In Progress
+
+## Automated Incident Response
+
+Implemented EventBridge rules to process GuardDuty findings and route security events to SNS notification channels.
+
+Services:
+- GuardDuty
+- EventBridge
+- SNS
+
+Outcome:
+Established event-driven security notification architecture for threat detection workflows.
+
+## Event-Driven Security Notifications
+
+Implemented EventBridge integration for GuardDuty findings and SNS notifications.
+
+Architecture:
+
+GuardDuty → EventBridge → SNS → Email
+
+Validation:
+
+- EventBridge rule created
+- SNS topic configured
+- Email subscription confirmed
+- GuardDuty sample findings generated
+
+Notes:
+
+AWS sample findings were successfully generated and centralized in Security Hub. EventBridge integration was configured as the foundation for production notification workflows.
