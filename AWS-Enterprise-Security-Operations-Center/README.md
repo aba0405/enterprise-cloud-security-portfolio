@@ -1,42 +1,37 @@
+# AWS Enterprise Security Operations Center
+
+## Table of Contents
+
 1. Architecture Overview
 2. AWS Organizations Setup
 3. GuardDuty Deployment
 4. Security Hub Deployment
 5. Inspector Deployment
 6. Threat Detection Validation
-7. ## Threat Detection Validation
+7. Automated Incident Response
+8. Lessons Learned
+9. Tradeoffs and Design Decisions
 
-### Scenario
+# Threat Detection Validation
+
+## Scenario
 
 GuardDuty Attack Sequence Detection
 
-### Finding
+## Finding
 
 AttackSequence:EC2/CompromisedInstanceGroup
 
-### Severity
+## Severity
 
 Critical
 
-### Services Involved
+## Evidence
 
-- Amazon GuardDuty
-- AWS Security Hub
-- Amazon EC2
+![Attack Sequence](screenshots/07-attack-simulation/attack-sequence-ec2-compromise.png)
 
-### Description
+![Command and Control](screenshots/07-attack-simulation/command-and-control-resource.png)
 
-GuardDuty generated a critical attack sequence finding indicating potential EC2 compromise and command-and-control activity. The finding was automatically ingested into Security Hub for centralized investigation and prioritization.
+## Outcome
 
-### Validation Evidence
-
-- screenshots/07-attack-simulation/attack-sequence-ec2-compromise.png
-- screenshots/07-attack-simulation/command-and-control-resource.png
-
-### Outcome
-
-Successfully validated end-to-end threat detection using AWS-native security services and confirmed integration between GuardDuty and Security Hub.
-8. Automated Incident Response
-9. Lessons Learned
-10. Tradeoffs and Design Decisions
-11. Future Enhancements
+Successfully validated GuardDuty attack sequence detection and Security Hub integration.
