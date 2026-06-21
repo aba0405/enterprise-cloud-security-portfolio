@@ -1,5 +1,9 @@
 # AWS Enterprise Security Operations Center
 
+## Security Architecture
+
+Detection → Investigation → Notification → Containment → Forensics
+
 ![Architecture Diagram](architecture/aws-enterprise-security-operations-center.png)
 
 ## Overview
@@ -7,6 +11,18 @@
 Enterprise-grade AWS Security Operations Center (SOC) built using native AWS security services and automated incident response.
 
 This project demonstrates centralized threat detection, investigation, notification, automated containment, forensic evidence preservation, and infrastructure-as-code deployment patterns.
+
+## Executive Summary
+
+Designed and implemented an enterprise-grade AWS Security Operations Center (SOC) leveraging GuardDuty, Security Hub, Inspector, Detective, EventBridge, SNS, Lambda, and Terraform. Implemented automated threat detection, event-driven alerting, EC2 quarantine workflows, and forensic evidence preservation using EBS snapshots.
+
+## Architecture Highlights
+
+- Centralized security operations account
+- Event-driven incident response
+- Automated EC2 isolation
+- Automated forensic evidence preservation
+- Infrastructure as Code deployment using Terraform
 
 ## Key Capabilities
 
@@ -41,6 +57,7 @@ Forensics
 - Preserved forensic evidence for investigations
 - Centralized security visibility across AWS accounts
 - Demonstrated event-driven security operations using native AWS services
+- Automated containment reduced manual analyst intervention during incident response
 
 ## Project Metrics
 
@@ -56,8 +73,26 @@ Forensics
 | EBS Snapshot Preservation | ✅ Implemented |
 | Terraform | ✅ Implemented |
 | Runbooks | ✅ Implemented |
+| Incident Response Runbooks | ✅ Implemented |
+| Forensic Procedures | ✅ Implemented |
 
-## Table of Contents
+## Technologies Used
+
+- AWS Organizations
+- Amazon GuardDuty
+- AWS Security Hub
+- Amazon Inspector
+- Amazon Detective
+- Amazon EventBridge
+- Amazon SNS
+- AWS Lambda
+- Amazon EC2
+- Amazon EBS
+- AWS IAM
+- Terraform
+- GitHub
+
+## Implementation Walkthrough
 
 1. Architecture Overview
 2. AWS Organizations Setup
@@ -111,9 +146,9 @@ GuardDuty → EventBridge → SNS → Email
 
 ## Status
 
-In Progress
+Completed
 
-## Automated Incident Response
+## Event-Driven Notification Architecture
 
 Implemented EventBridge rules to process GuardDuty findings and route security events to SNS notification channels.
 
@@ -144,7 +179,7 @@ Notes:
 
 AWS sample findings were successfully generated and centralized in Security Hub. EventBridge integration was configured as the foundation for production notification workflows.
 
-# Threat Investigation
+# Amazon Detective Investigation
 
 ## Services
 
@@ -180,6 +215,12 @@ A dedicated security group was created to isolate compromised EC2 instances dete
 Preserve compromised systems for forensic investigation while preventing lateral movement and command-and-control communication.
 
 # Automated EC2 Quarantine
+
+### Validation Evidence
+
+![Quarantine Success](screenshots/10-quarantine/lambda-quarantine-success.png)
+
+![Quarantined Instance](screenshots/10-quarantine/after-quarantine.png)
 
 ## Objective
 
