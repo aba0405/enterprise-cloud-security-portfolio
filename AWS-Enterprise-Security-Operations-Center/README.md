@@ -106,3 +106,58 @@ Amazon Detective was enabled and integrated with the centralized security operat
 ## Notes
 
 Due to the lab environment and limited telemetry history, Detective did not generate finding groups during the testing window. The integration architecture was successfully deployed and validated.
+
+# Automated Containment
+
+## Quarantine Security Group
+
+A dedicated security group was created to isolate compromised EC2 instances detected by GuardDuty.
+
+### Characteristics
+
+- No inbound rules
+- No outbound rules
+
+### Purpose
+
+Preserve compromised systems for forensic investigation while preventing lateral movement and command-and-control communication.
+
+# Automated EC2 Quarantine
+
+## Objective
+
+Automatically isolate compromised EC2 instances identified by security monitoring services.
+
+## Architecture
+
+GuardDuty
+    ↓
+EventBridge
+    ↓
+Lambda
+    ↓
+Quarantine Security Group
+    ↓
+Isolated EC2 Instance
+
+## Components
+
+- Amazon GuardDuty
+- Amazon EventBridge
+- AWS Lambda
+- Amazon EC2
+- Security Groups
+
+## Validation
+
+A Lambda function successfully modified the security group of a test EC2 instance and attached the quarantine security group.
+
+Instance:
+i-037cdd43c2179f856
+
+Quarantine Security Group:
+sg-044c03f6ebfdcfefe
+
+## Outcome
+
+Compromised workloads can be automatically isolated to prevent lateral movement and outbound command-and-control communications while preserving forensic evidence.
