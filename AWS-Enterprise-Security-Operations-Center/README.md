@@ -1,5 +1,26 @@
 # AWS Enterprise Security Operations Center
 
+![Architecture Diagram](architecture/aws-enterprise-security-operations-center.png)
+
+## Overview
+
+## Key Capabilities
+
+- AWS Organizations
+- GuardDuty
+- Security Hub
+- Inspector
+- Detective
+- EventBridge
+- SNS
+- Automated EC2 Quarantine
+- Automated EBS Snapshot Preservation
+- Terraform
+
+## Security Operations Workflow
+
+Detection → Investigation → Notification → Containment → Forensics
+
 ## Table of Contents
 
 1. Architecture Overview
