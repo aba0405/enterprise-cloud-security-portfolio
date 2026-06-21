@@ -4,22 +4,58 @@
 
 ## Overview
 
+Enterprise-grade AWS Security Operations Center (SOC) built using native AWS security services and automated incident response.
+
+This project demonstrates centralized threat detection, investigation, notification, automated containment, forensic evidence preservation, and infrastructure-as-code deployment patterns.
+
 ## Key Capabilities
 
-- AWS Organizations
-- GuardDuty
-- Security Hub
-- Inspector
-- Detective
-- EventBridge
-- SNS
-- Automated EC2 Quarantine
-- Automated EBS Snapshot Preservation
-- Terraform
+- AWS Organizations multi-account architecture
+- Centralized Security Account
+- Amazon GuardDuty threat detection
+- AWS Security Hub centralized findings
+- Amazon Inspector vulnerability management
+- Amazon Detective investigation workflows
+- EventBridge event processing
+- SNS security notifications
+- Automated EC2 quarantine
+- Automated EBS forensic snapshot preservation
+- Terraform Infrastructure as Code
 
 ## Security Operations Workflow
 
-Detection → Investigation → Notification → Containment → Forensics
+Detection
+↓
+Investigation
+↓
+Notification
+↓
+Containment
+↓
+Forensics
+
+## Business Impact
+
+- Reduced incident response time through automation
+- Automated containment of compromised EC2 instances
+- Preserved forensic evidence for investigations
+- Centralized security visibility across AWS accounts
+- Demonstrated event-driven security operations using native AWS services
+
+## Project Metrics
+
+| Capability | Status |
+|------------|---------|
+| GuardDuty | ✅ Implemented |
+| Security Hub | ✅ Implemented |
+| Inspector | ✅ Implemented |
+| Detective | ✅ Implemented |
+| EventBridge | ✅ Implemented |
+| SNS Notifications | ✅ Implemented |
+| Automated Quarantine | ✅ Implemented |
+| EBS Snapshot Preservation | ✅ Implemented |
+| Terraform | ✅ Implemented |
+| Runbooks | ✅ Implemented |
 
 ## Table of Contents
 
