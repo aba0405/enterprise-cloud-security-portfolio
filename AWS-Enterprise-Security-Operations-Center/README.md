@@ -161,3 +161,30 @@ sg-044c03f6ebfdcfefe
 ## Outcome
 
 Compromised workloads can be automatically isolated to prevent lateral movement and outbound command-and-control communications while preserving forensic evidence.
+
+## Infrastructure as Code
+
+Core security automation resources were codified using Terraform to ensure repeatable deployments and version-controlled infrastructure.
+
+### Managed Resources
+
+* Amazon SNS Topic for GuardDuty notifications
+* Email subscription for security alerts
+* EC2 Quarantine Security Group
+* Lambda IAM Role
+* EC2 Quarantine IAM Policy
+
+### Terraform Workflow
+
+```bash
+terraform init
+terraform validate
+terraform plan
+```
+
+### Benefits
+
+* Repeatable deployments
+* Infrastructure version control
+* Auditable security changes
+* Consistent security configuration across environments
