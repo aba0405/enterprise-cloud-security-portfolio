@@ -2,13 +2,18 @@
 
 A collection of enterprise-scale cloud security projects demonstrating architecture design, security operations, governance, DevSecOps automation, threat detection and response, vulnerability management, and secure AI implementations on AWS.
 
-A --> B["🛡️ Enterprise Security Operations Center (SOC)"]
-A --> C["🤖 Secure Generative AI Platform"]
-A --> D["🌊 AWS Security Lake Analytics"]
-A --> E["🏢 Multi-Account Landing Zone Governance"]
-A --> F["⚡ Incident Response Automation"]
-A --> G["🔒 DevSecOps Reference Architecture"]
+<p align="center">
+  <img src="images/aws-security-portfolio-overview.png" width="100%">
+</p>
 
+| Project | Focus Area |
+|----------|------------|
+| Enterprise Security Operations Center | Threat Detection & Response |
+| Secure Generative AI Platform | AI Security |
+| AWS Security Lake Analytics | Threat Hunting |
+| Multi-Account Landing Zone Governance | Governance |
+| Incident Response Automation | SOAR |
+| DevSecOps Reference Architecture | Shift Left Security |
 
 
 
