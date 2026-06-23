@@ -2,9 +2,6 @@
 
 A collection of enterprise-scale cloud security projects demonstrating architecture design, security operations, governance, DevSecOps automation, threat detection and response, vulnerability management, and secure AI implementations on AWS.
 
-<p align="center">
-  <img src="images/aws-security-portfolio-overview.png" width="100%">
-</p>
 
 | Project | Focus Area |
 |----------|------------|
