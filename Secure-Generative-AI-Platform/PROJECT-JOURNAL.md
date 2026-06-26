@@ -32,3 +32,50 @@ Implement enterprise-grade user authentication using Amazon Cognito.
 
 ### Status
 Completed
+
+## Phase 04 - Secure API Layer
+
+### Objective
+
+Build a serverless API using Amazon API Gateway and AWS Lambda.
+
+### Completed
+
+- Created HTTP API
+- Created POST /chat route
+- Created Lambda backend
+- Connected API Gateway to Lambda
+- Successfully tested endpoint using Postman
+
+### AWS Services
+
+- Amazon API Gateway
+- AWS Lambda
+
+### Status
+
+Completed
+
+## Phase 05 - Amazon Bedrock Integration
+
+### Objective
+
+Integrate Amazon Bedrock with AWS Lambda to provide AI-generated responses through the backend API.
+
+### Completed
+
+- Submitted Anthropic use case
+- Configured Lambda IAM permissions
+- Added Bedrock model configuration using environment variables
+- Integrated AWS Lambda with Amazon Bedrock
+- Successfully invoked Claude Sonnet through API Gateway
+
+### AWS Services
+
+- Amazon Bedrock
+- AWS Lambda
+- Amazon API Gateway
+
+### Status
+
+Completed
