@@ -1,5 +1,12 @@
 # Secure Generative AI Platform on AWS
 
+---
+## Architecture
+
+![Secure Generative AI Platform Architecture](architecture/secure-genai-architecture.png)
+
+---
+
 ## Overview
 
 The Secure Generative AI Platform is an enterprise-style serverless application built entirely on AWS. It demonstrates secure user authentication, AI-powered conversations using Amazon Bedrock, conversation persistence, application-layer AI security controls, and operational monitoring using AWS native services.
@@ -48,12 +55,6 @@ The project was designed to showcase modern cloud architecture, serverless devel
 * Security event logging
 * Least-privilege IAM implementation
 * Operational monitoring foundation
-
----
-
-## Architecture
-
-![Secure Generative AI Platform Architecture](architecture/secure-genai-architecture.png)
 
 ---
 
