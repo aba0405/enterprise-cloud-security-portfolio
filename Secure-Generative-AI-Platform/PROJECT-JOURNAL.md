@@ -168,3 +168,31 @@ Completed
 ## Phase 07 – Secure Frontend Authentication & AI Chat
 
 Completed the frontend authentication and secure AI chat integration for the Secure Generative AI Platform. Implemented Amazon Cognito authentication using the OAuth 2.0 Authorization Code Flow, protected backend APIs with an API Gateway JWT Authorizer, and integrated AWS Lambda with Amazon Bedrock to securely process authenticated AI requests. The frontend is deployed on Amazon CloudFront and provides an end-to-end browser-based AI experience using AWS-native security services.
+
+## Phase 07.2 - AI Security Controls
+
+### Objective
+
+Implement application-layer AI security controls to protect the Secure Generative AI Platform against malicious prompts, prompt injection attempts, and invalid user input before invoking Amazon Bedrock.
+
+### Completed
+
+* Implemented empty prompt validation
+* Enforced maximum prompt length
+* Added prompt injection detection using blocked patterns
+* Generated CloudWatch security alerts for blocked requests
+* Prevented malicious prompts from reaching Amazon Bedrock
+* Prevented blocked requests from being stored in DynamoDB
+* Validated AI security controls through functional testing
+
+### AWS Services
+
+* AWS Lambda
+* Amazon Bedrock
+* Amazon API Gateway
+* Amazon DynamoDB
+* Amazon CloudWatch
+
+### Status
+
+Completed
