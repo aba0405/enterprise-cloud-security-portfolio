@@ -80,7 +80,7 @@ Integrate Amazon Bedrock with AWS Lambda to provide AI-generated responses throu
 
 Completed
 
-## Phase 05.2 - Conversation Logging
+## Phase 5.2 - Conversation Logging
 
 ### Objective
 
@@ -136,6 +136,34 @@ Secure the serverless backend by implementing Amazon Cognito authentication and 
 ### Status
 
 Completed ✅
+
+## Phase 6.2 - Security Hardening
+
+### Objective
+
+Improve the security posture of the Secure Generative AI Platform by implementing least-privilege IAM permissions, validating secure communication, and verifying AWS-native security controls.
+
+### Completed
+
+* Replaced AmazonDynamoDBFullAccess with a custom least-privilege IAM policy
+* Validated Lambda functionality after IAM hardening
+* Verified HTTPS enforcement through CloudFront
+* Confirmed DynamoDB encryption at rest
+* Reviewed Lambda environment variables
+* Verified JWT authorization using API Gateway
+
+### AWS Services
+
+* AWS IAM
+* Amazon API Gateway
+* AWS Lambda
+* Amazon CloudFront
+* Amazon DynamoDB
+* Amazon S3
+
+### Status
+
+Completed
 
 ## Phase 07 – Secure Frontend Authentication & AI Chat
 
