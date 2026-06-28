@@ -2,62 +2,79 @@
 
 ## Overview
 
-This project demonstrates how to design, build, and secure an enterprise-grade Generative AI platform using AWS native services.
+The Secure Generative AI Platform is an enterprise-style serverless application built entirely on AWS. It demonstrates secure user authentication, AI-powered conversations using Amazon Bedrock, conversation persistence, application-layer AI security controls, and operational monitoring using AWS native services.
 
-The solution follows AWS security best practices while implementing authentication, authorization, auditing, threat detection, and AI-specific security controls.
-
-This project is being built incrementally as part of the Enterprise Cloud Security Portfolio.
+The project was designed to showcase modern cloud architecture, serverless development, security best practices, and Generative AI integration suitable for enterprise environments.
 
 ---
 
-## Objectives
+# Objectives
 
-- Secure user authentication
-- Secure access to Amazon Bedrock
-- AI prompt protection
-- Audit logging
-- Threat detection
-- Automated security monitoring
-- Security operations integration
-
----
-
-## Planned AWS Services
-
-- Amazon Bedrock
-- Amazon Cognito
-- AWS Lambda
-- Amazon API Gateway
-- Amazon DynamoDB
-- Amazon CloudWatch
-- AWS CloudTrail
-- AWS WAF
-- AWS KMS
-- AWS Secrets Manager
-- AWS Security Hub
-- Amazon GuardDuty
-- Amazon Inspector
+* Secure user authentication using Amazon Cognito
+* AI-powered conversations using Amazon Bedrock
+* Serverless backend using AWS Lambda
+* REST API using Amazon API Gateway
+* Conversation persistence with Amazon DynamoDB
+* AI prompt validation and prompt injection protection
+* Security event logging using Amazon CloudWatch
+* Operational monitoring with Amazon SNS
 
 ---
 
-## Project Status
+# AWS Services Used
 
-| Phase | Status |
-|---------|--------|
-| Phase 00 – Project Setup | ✅ In Progress |
-| Phase 01 – Frontend Hosting | ⏳ |
-| Phase 02 – Amazon Cognito | ⏳ |
-| Phase 03 – API Gateway & Lambda | ⏳ |
-| Phase 04 – Amazon Bedrock | ⏳ |
-| Phase 05 – Conversation Logging | ⏳ |
-| Phase 06 – Security Hardening | ⏳ |
-| Phase 07 – AI Security Controls | ⏳ |
-| Phase 08 – Security Operations Integration | ⏳ |
-| Phase 09 – Documentation & Final Review | ⏳ |
+* Amazon Bedrock
+* Amazon Cognito
+* Amazon API Gateway
+* AWS Lambda
+* Amazon DynamoDB
+* Amazon S3
+* Amazon CloudFront
+* Amazon CloudWatch
+* Amazon SNS
+* AWS IAM
 
 ---
 
-## Repository Structure
+# Features
+
+* Secure OAuth 2.0 authentication
+* JWT-based authorization
+* Serverless REST API
+* AI chat powered by Amazon Bedrock
+* Conversation history stored in DynamoDB
+* Prompt validation
+* Prompt injection detection
+* Security event logging
+* Least-privilege IAM implementation
+* Operational monitoring foundation
+
+---
+
+## Architecture
+
+![Secure Generative AI Platform Architecture](architecture/secure-genai-architecture.png)
+
+---
+
+# Project Status
+
+| Phase                                      | Status     |
+| ------------------------------------------ | ---------- |
+| Phase 00 – Project Setup                   | ✅ Complete |
+| Phase 01 – Frontend Hosting                | ✅ Complete |
+| Phase 02 – Amazon Cognito                  | ✅ Complete |
+| Phase 03 – API Gateway & Lambda            | ✅ Complete |
+| Phase 04 – Amazon Bedrock                  | ✅ Complete |
+| Phase 05 – Conversation Logging            | ✅ Complete |
+| Phase 06 – Security Hardening              | ✅ Complete |
+| Phase 07 – AI Security Controls            | ✅ Complete |
+| Phase 08 – Security Operations Integration | ✅ Complete |
+| Phase 09 – Documentation & Final Review    | ✅ Complete |
+
+---
+
+# Repository Structure
 
 ```text
 Secure-Generative-AI-Platform/
@@ -66,7 +83,24 @@ Secure-Generative-AI-Platform/
 ├── docs/
 ├── frontend/
 ├── lambda/
-├── terraform/
 ├── screenshots/
+├── PROJECT-JOURNAL.md
 └── README.md
 ```
+
+---
+
+# Skills Demonstrated
+
+* AWS Serverless Architecture
+* Generative AI Integration
+* Amazon Bedrock
+* Secure Authentication (OAuth 2.0 / JWT)
+* REST API Development
+* AWS Lambda
+* Amazon DynamoDB
+* Cloud Security
+* IAM Least Privilege
+* AI Prompt Security
+* CloudWatch Monitoring
+* Security Operations Concepts
