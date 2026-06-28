@@ -80,6 +80,34 @@ Integrate Amazon Bedrock with AWS Lambda to provide AI-generated responses throu
 
 Completed
 
+## Phase 05.2 - Conversation Logging
+
+### Objective
+
+Implement persistent conversation logging by storing user prompts and AI responses in Amazon DynamoDB for auditing, troubleshooting, and future analytics.
+
+### Completed
+
+* Created Amazon DynamoDB table for conversation storage
+* Configured Lambda IAM permissions for DynamoDB access
+* Extended AWS Lambda to store conversation history
+* Recorded user prompts and AI responses
+* Stored session identifiers and timestamps
+* Validated successful conversation logging through DynamoDB
+* Verified successful Lambda execution using CloudWatch Logs
+
+### AWS Services
+
+* Amazon DynamoDB
+* AWS Lambda
+* Amazon Bedrock
+* Amazon API Gateway
+* Amazon CloudWatch
+
+### Status
+
+Completed
+
 ## Phase 06 - Secure API with Amazon Cognito JWT Authentication
 
 ### Objective
