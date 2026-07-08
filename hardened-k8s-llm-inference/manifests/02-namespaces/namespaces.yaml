@@ -1,0 +1,25 @@
+# namespaces.yaml
+# Tenancy model for the LLM inference platform.
+# Each namespace is an isolation boundary for RBAC + Network Policies later.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: llm-inference
+  labels:
+    tier: workload
+    # This label is used later by Pod Security Admission (Module 6)
+    pod-security.kubernetes.io/enforce: restricted
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+  labels:
+    tier: observability
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: security-tools
+  labels:
+    tier: security
