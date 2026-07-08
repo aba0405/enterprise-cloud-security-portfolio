@@ -67,3 +67,23 @@ the next.
     kubectl apply -f manifests/04-network-policies/
     kubectl apply -f manifests/06-admission-control/
     kubectl apply -f manifests/08-capstone/
+
+## Evidence (live demonstrations)
+
+**Pod hardening — same app, root vs non-root + read-only filesystem**
+![Pod security context comparison](docs/screenshots/01-pod-whoami-comparison.png)
+
+**Least-privilege RBAC — ServiceAccount denied secrets and cross-namespace access**
+![RBAC can-i results](docs/screenshots/03-rbac-can-i.png)
+
+**Network policy — lateral movement blocked (authorized 200, attacker 000)**
+![NetworkPolicy enforcement](docs/screenshots/04-network-policy-block.png)
+
+**Image scanning — 98.7% CVE reduction via minimal base image (1519 → 20)**
+![Trivy base image comparison](docs/screenshots/05-trivy-comparison.png)
+
+**Admission control — Kyverno rejects a non-compliant workload at deploy time**
+![Kyverno policy rejection](docs/screenshots/06-kyverno-rejection.png)
+
+**Capstone — full secured inference Deployment running under all controls**
+![Capstone deployment](docs/screenshots/08-capstone-deployment.png)
