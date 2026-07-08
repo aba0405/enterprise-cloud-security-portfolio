@@ -1,0 +1,16 @@
+# insecure-pod.yaml
+# DELIBERATELY INSECURE — documents the default-risk baseline.
+# Container runs as root, can write anywhere, keeps all Linux capabilities.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: insecure-pod
+  labels:
+    app: demo
+    security: insecure
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.27
+      ports:
+        - containerPort: 80

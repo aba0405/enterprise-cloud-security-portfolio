@@ -1,0 +1,41 @@
+# secure-pod.yaml
+# Hardened baseline: non-root, read-only filesystem, no privilege escalation,
+# all Linux capabilities dropped. This is the pattern every workload should follow.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-pod
+  labels:
+    app: demo
+    security: hardened
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 101
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: nginx
+      image: nginxinc/nginx-unprivileged:1.27
+      ports:
+        - containerPort: 8080
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop:
+            - ALL
+      volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+        - name: cache
+          mountPath: /var/cache/nginx
+        - name: run
+          mountPath: /var/run
+  volumes:
+    - name: tmp
+      emptyDir: {}
+    - name: cache
+      emptyDir: {}
+    - name: run
+      emptyDir: {}

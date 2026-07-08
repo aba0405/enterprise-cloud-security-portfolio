@@ -1,0 +1,8 @@
+*.tmp
+*.log
+.DS_Store
+kubeconfig
+*.pem
+*.key
+kind
+**/application/kind
