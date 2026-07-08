@@ -1,0 +1,21 @@
+# .github/workflows/trivy-scan.yml
+# Shift-left image scanning gate. Fails the build on HIGH/CRITICAL CVEs.
+name: Trivy Image Scan
+on:
+  push:
+    paths:
+      - 'hardened-k8s-llm-inference/**'
+  pull_request:
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Scan hardened runtime image
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          image-ref: 'nginxinc/nginx-unprivileged:1.27'
+          format: 'table'
+          severity: 'HIGH,CRITICAL'
+          exit-code: '1'          # fail the build if anything HIGH/CRITICAL is found
+          ignore-unfixed: true    # only gate on vulns that actually have a fix
