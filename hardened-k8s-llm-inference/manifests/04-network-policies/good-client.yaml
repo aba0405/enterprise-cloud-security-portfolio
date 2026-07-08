@@ -1,0 +1,32 @@
+# good-client.yaml
+# A LEGITIMATE client, labeled role=llm-client so the allow-policy permits it.
+# Compliant with the namespace's restricted Pod Security Standard.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: good-client
+  namespace: llm-inference
+  labels:
+    role: llm-client
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: netshoot
+      image: nicolaka/netshoot
+      command: ["sleep", "infinity"]
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop:
+            - ALL
+      volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+  volumes:
+    - name: tmp
+      emptyDir: {}
