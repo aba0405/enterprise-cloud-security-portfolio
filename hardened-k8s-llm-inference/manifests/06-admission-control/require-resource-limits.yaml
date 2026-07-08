@@ -1,0 +1,29 @@
+# require-resource-limits.yaml
+# Kyverno ClusterPolicy: every Pod must declare CPU and memory limits.
+# Rationale: unbounded Pods enable resource-exhaustion / DoS and noisy-neighbor
+# attacks. PSA cannot express this — it's a custom rule, so Kyverno enforces it.
+apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: require-resource-limits
+spec:
+  validationFailureAction: Enforce   # reject violations (vs Audit = log only)
+  background: false
+  rules:
+    - name: validate-resource-limits
+      match:
+        any:
+          - resources:
+              kinds:
+                - Pod
+              namespaces:
+                - llm-inference
+      validate:
+        message: "CPU and memory limits are required for all Pods in llm-inference."
+        pattern:
+          spec:
+            containers:
+              - resources:
+                  limits:
+                    memory: "?*"   # ?* = must be present and non-empty
+                    cpu: "?*"
