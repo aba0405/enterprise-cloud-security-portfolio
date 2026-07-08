@@ -1,0 +1,67 @@
+# inference-deployment.yaml
+# CAPSTONE: an LLM-inference-style workload satisfying ALL platform controls.
+# A Deployment (self-healing, replicated) running a hardened, resource-bounded,
+# non-root, network-policy-compliant service in the restricted namespace.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: llm-inference
+  namespace: llm-inference
+  labels:
+    app: llm-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: llm-api
+  template:
+    metadata:
+      labels:
+        app: llm-api                 # matches the M4 network policy target
+    spec:
+      serviceAccountName: llm-inference-sa   # M3: least-privilege identity
+      automountServiceAccountToken: false     # M3/M7: no token to steal
+      securityContext:                         # M1: pod-level hardening
+        runAsNonRoot: true
+        runAsUser: 101
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: inference
+          # M5: pinned, minimal, scanned image (stand-in for a model server)
+          image: nginxinc/nginx-unprivileged:1.27
+          ports:
+            - containerPort: 8080
+          resources:                           # M6: Kyverno-required limits
+            limits:
+              memory: "256Mi"
+              cpu: "500m"
+            requests:
+              memory: "128Mi"
+              cpu: "250m"
+          securityContext:                     # M1: container-level hardening
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: [ALL]
+          volumeMounts:
+            - { name: tmp,   mountPath: /tmp }
+            - { name: cache, mountPath: /var/cache/nginx }
+            - { name: run,   mountPath: /var/run }
+      volumes:
+        - { name: tmp,   emptyDir: {} }
+        - { name: cache, emptyDir: {} }
+        - { name: run,   emptyDir: {} }
+---
+# A Service to expose the inference workload internally (stable endpoint)
+apiVersion: v1
+kind: Service
+metadata:
+  name: llm-inference-svc
+  namespace: llm-inference
+spec:
+  selector:
+    app: llm-api
+  ports:
+    - port: 8080
+      targetPort: 8080
