@@ -1,0 +1,16 @@
+# rolebinding.yaml
+# Connects the subject (llm-inference-sa) to the Role (llm-inference-reader),
+# scoped to the llm-inference namespace only.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: llm-inference-reader-binding
+  namespace: llm-inference
+subjects:
+  - kind: ServiceAccount
+    name: llm-inference-sa
+    namespace: llm-inference
+roleRef:
+  kind: Role
+  name: llm-inference-reader
+  apiGroup: rbac.authorization.k8s.io

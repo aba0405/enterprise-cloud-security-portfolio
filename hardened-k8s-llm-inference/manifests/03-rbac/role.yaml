@@ -1,0 +1,13 @@
+# role.yaml
+# A namespace-scoped Role. Grants ONLY read access to configmaps in
+# llm-inference — nothing else. No secrets, no write, no cross-namespace.
+# This is the shape of least privilege: narrow verbs, narrow resources, narrow scope.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: llm-inference-reader
+  namespace: llm-inference
+rules:
+  - apiGroups: [""]          # "" = the core API group
+    resources: ["configmaps"]
+    verbs: ["get", "list"]   # read-only. No create/update/delete.
