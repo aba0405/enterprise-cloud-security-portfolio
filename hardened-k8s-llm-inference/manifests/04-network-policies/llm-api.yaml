@@ -1,0 +1,42 @@
+# llm-api.yaml
+# The "victim" workload for network policy testing — a stand-in for the LLM
+# inference API. Fully compliant with the namespace's "restricted" Pod Security
+# Standard (non-root, no privilege escalation, read-only FS, dropped caps, seccomp).
+apiVersion: v1
+kind: Pod
+metadata:
+  name: llm-api
+  namespace: llm-inference
+  labels:
+    app: llm-api
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 101
+    seccompProfile:
+      type: RuntimeDefault
+  containers:
+    - name: nginx
+      image: nginxinc/nginx-unprivileged:1.27
+      ports:
+        - containerPort: 8080
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities:
+          drop:
+            - ALL
+      volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+        - name: cache
+          mountPath: /var/cache/nginx
+        - name: run
+          mountPath: /var/run
+  volumes:
+    - name: tmp
+      emptyDir: {}
+    - name: cache
+      emptyDir: {}
+    - name: run
+      emptyDir: {}

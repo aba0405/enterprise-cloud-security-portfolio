@@ -1,0 +1,13 @@
+# default-deny.yaml
+# Blocks ALL incoming traffic to every Pod in llm-inference.
+# Empty podSelector {} = "all pods in this namespace".
+# policyTypes: Ingress with no ingress rules = deny all inbound.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-ingress
+  namespace: llm-inference
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress

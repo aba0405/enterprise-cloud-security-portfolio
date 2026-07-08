@@ -1,0 +1,22 @@
+# allow-llm-clients.yaml
+# The precise exception to default-deny: llm-api may receive traffic ONLY from
+# Pods labeled "role: llm-client" — and only on port 8080. Everything else stays denied.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-llm-clients
+  namespace: llm-inference
+spec:
+  podSelector:
+    matchLabels:
+      app: llm-api          # this policy protects the llm-api Pods
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - podSelector:
+            matchLabels:
+              role: llm-client   # only pods with this label may connect
+      ports:
+        - protocol: TCP
+          port: 8080
